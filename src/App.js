@@ -11,6 +11,8 @@ import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
 import UserLogin from './Components/UserLogin/UserLogin';
 import { createContext } from 'react';
 import { useState } from 'react';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Services from './Components/Home/Services/Services';
 
 export const UserContext = createContext();
 export const PaymentContext=createContext();
@@ -30,11 +32,14 @@ function App() {
           <Route path="/Admin">
             <Admin></Admin>
           </Route>
-          <Route path="/Dashboard">
+          <PrivateRoute path="/Dashboard">
             <Dashboard></Dashboard>
-          </Route>
+          </PrivateRoute>
           <Route path="/Login">
             <UserLogin></UserLogin>
+          </Route>
+          <Route path="/getAllServices">
+            <Services></Services>
           </Route>
         </Switch>
 

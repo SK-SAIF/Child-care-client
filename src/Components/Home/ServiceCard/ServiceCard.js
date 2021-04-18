@@ -48,7 +48,7 @@ const ServiceCard = ({ serviceInfo }) => {
                 <Button onClick={() => handleLearnMore(serviceInfo)} variant="info">Learn More</Button>
             </div>
 
-            {modalInfo && <article>
+            {modalInfo && user && <article>
 
 
                 <Modal show={show} onHide={handleClose} animation={false}>
@@ -71,6 +71,7 @@ const ServiceCard = ({ serviceInfo }) => {
                     </Modal.Footer>}
                 </Modal>
             </article>}
+                    
 
         </div>
 

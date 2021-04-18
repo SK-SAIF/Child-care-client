@@ -18,6 +18,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Orders from '../Orders/Orders';
+import UserReview from '../UserReview/UserReview';
+import { useContext } from 'react';
+import { UserContext } from '../../../App';
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
@@ -102,6 +105,9 @@ const UserSidebar = () => {
 
     }
     console.log(clickedMenu);
+    const [user,setUser]=useContext(UserContext);
+
+    console.log(user);
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -156,22 +162,17 @@ const UserSidebar = () => {
                 })}
             >
                 <div className={classes.drawerHeader} />
-                {clickedMenu && <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-                    facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-                    gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-                    donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-                    adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-                    Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-                    imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-                    arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-                    donec massa sapien faucibus et molestie ac.
+                {user && <Typography>
+                        <h1>Welcome {user.displayName}</h1>
                     </Typography>}
                 {clickedMenu ==='Your Order' && <section>
                     <Orders></Orders>
                 </section>}
-
+                    {
+                        clickedMenu === 'Give Review' && <section>
+                            <UserReview></UserReview>
+                        </section>
+                    }
             </main>
         </div>
     );
