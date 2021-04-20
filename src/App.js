@@ -13,37 +13,41 @@ import { createContext } from 'react';
 import { useState } from 'react';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Services from './Components/Home/Services/Services';
+import Review from './Components/Home/Review/Review';
 
 export const UserContext = createContext();
-export const PaymentContext=createContext();
+export const PaymentContext = createContext();
 
 function App() {
   const [user, setUser] = useState();
-  const [paymentInfo,setPaymentInfo]=useState();
-  //console.log(user);
+  const [paymentInfo, setPaymentInfo] = useState();
+  
+  
   return (
     <UserContext.Provider value={[user, setUser]}>
-      <PaymentContext.Provider value={[paymentInfo,setPaymentInfo]}>
-      <Router>
-        <Switch>
-          <Route exact path='/'>
-            <Home></Home>
-          </Route>
-          <Route path="/Admin">
-            <Admin></Admin>
-          </Route>
-          <PrivateRoute path="/Dashboard">
-            <Dashboard></Dashboard>
-          </PrivateRoute>
-          <Route path="/Login">
-            <UserLogin></UserLogin>
-          </Route>
-          <Route path="/getAllServices">
-            <Services></Services>
-          </Route>
-        </Switch>
-
-      </Router>
+      <PaymentContext.Provider value={[paymentInfo, setPaymentInfo]}>
+          <Router>
+            <Switch>
+              <Route exact path='/'>
+                <Home></Home>
+              </Route>
+              <Route path="/Admin">
+                <Admin></Admin>
+              </Route>
+              <PrivateRoute path="/Dashboard">
+                <Dashboard></Dashboard>
+              </PrivateRoute>
+              <Route path="/Login">
+                <UserLogin></UserLogin>
+              </Route>
+              <Route path="/getAllServices">
+                <Services></Services>
+              </Route>
+              <Route path="/getAllReview">
+                <Review></Review>
+              </Route>
+            </Switch>
+          </Router>
       </PaymentContext.Provider>
     </UserContext.Provider>
 

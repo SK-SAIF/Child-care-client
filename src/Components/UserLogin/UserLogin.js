@@ -3,15 +3,15 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import { useContext } from 'react';
-import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
+import { UserContext } from '../../App';
+
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
 const UserLogin = () => {
     const [user, setUser]=useContext(UserContext);
-
     const history = useHistory();
     const location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
@@ -35,7 +35,6 @@ const UserLogin = () => {
                 console.log(errorMessage)              
             });
     }
-
     return (
         <div>
             <button onClick={handleGoogleSignInButton}>

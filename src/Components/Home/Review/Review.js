@@ -1,30 +1,17 @@
-import React from 'react';
-import p1 from '../../../images/parent1.jpg';
-import p2 from '../../../images/parent2.jpg';
-import p3 from '../../../images/parent3.jpg';
+import React, { useEffect, useState } from 'react';
 import ReviewCard from '../ReviewCard/ReviewCard';
-const reviewData=[
-    {
-        name:'Alison',
-        description:`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nobis doloremque quisquam totam fuga. Dicta facere dolores quam nesciunt accusantium.`,
-        photo:`${p1}`
-    },
-    {
-        name:'Maria',
-        description:`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nobis doloremque quisquam totam fuga. Dicta facere dolores quam nesciunt accusantium.`,
-        photo:`${p2}`
-    },
-    {
-        name:'Kelly',
-        description:`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nobis doloremque quisquam totam fuga. Dicta facere dolores quam nesciunt accusantium.`,
-        photo:`${p3}`
-    }
-]
+
 const Review = () => {
+    const [reviewData,setReviewData]=useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:5000/allReview')
+        .then(res=>res.json())
+        .then(data=>setReviewData(data))
+    },[]);
     return (
-        <section className="container">
-            <h1>WHAT OUR PARENTS SAY:</h1>
-            <div className="row">
+        <section className="container mt-5 mb-5">
+            <h1 style={{color:"tomato",backgroundColor:"snow"}} className="text-center">WHAT OUR PARENTS SAY:</h1>
+            <div className="row justify-content-md-center mt-5">
                 {
                     reviewData.map(review=><ReviewCard review={review}></ReviewCard>)
                 }

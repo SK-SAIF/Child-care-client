@@ -17,9 +17,9 @@ const AddService = () => {
     })
     .then(res=>res.json())
     .then(result=>{
-      // if(result === true){
-      //   alert("Added Services successfully");
-      // }
+      if(result === true){
+        alert("Added Services successfully");
+      }
       console.log(result);
     })
   }
