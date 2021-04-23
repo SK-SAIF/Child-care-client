@@ -10,7 +10,7 @@ const AddService = () => {
     image: ''
   });
   const handleSubmitButton = () => {
-    fetch('http://localhost:5000/addService',{
+    fetch('https://cryptic-wildwood-03747.herokuapp.com/addService',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify(addServiceForm)

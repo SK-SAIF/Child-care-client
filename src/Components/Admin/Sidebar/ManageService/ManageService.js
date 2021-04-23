@@ -6,7 +6,7 @@ const ManageService = () => {
     const [allServiceData,setAllServiceData]=useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/getAllServices')
+        fetch('https://cryptic-wildwood-03747.herokuapp.com/getAllServices')
         .then(res=>res.json())
         .then(data=>setAllServiceData(data))
     },[])

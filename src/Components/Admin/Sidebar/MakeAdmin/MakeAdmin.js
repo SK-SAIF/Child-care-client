@@ -13,7 +13,7 @@ const MakeAdmin = () => {
     }
 
     const handleAdminSubmitButton = () => {
-        fetch('http://localhost:5000/makeAdmin', {
+        fetch('https://cryptic-wildwood-03747.herokuapp.com/makeAdmin', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(adminMail)

@@ -7,7 +7,7 @@ const AdminDashboard = () => {
     const [orders,setOrders]=useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/getAllOrders')
+        fetch('https://cryptic-wildwood-03747.herokuapp.com/getAllOrders')
         .then(res=>res.json())
         .then(data=>setOrders(data))
     },[]);

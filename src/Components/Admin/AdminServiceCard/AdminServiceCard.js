@@ -3,7 +3,7 @@ import React from 'react';
 const AdminServiceCard = ({serviceInfo}) => {
     console.log(serviceInfo);
     const handleDeleteButton=(_id)=>{
-            fetch(`http://localhost:5000/deleteService/${_id}`,{
+            fetch(`https://cryptic-wildwood-03747.herokuapp.com/deleteService/${_id}`,{
                 method:"DELETE"
             })
             .then(res=>res.json())

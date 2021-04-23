@@ -27,7 +27,7 @@ const ServiceCard = ({ serviceInfo }) => {
     console.log(buyService);
     const handleConfirm = () => {
 
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://cryptic-wildwood-03747.herokuapp.com/addOrder', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(buyService)

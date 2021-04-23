@@ -9,7 +9,7 @@ const Orders = () => {
     const [user, setUser]=useContext(UserContext);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/getSpecificOrders?email='+user.email)
+        fetch('https://cryptic-wildwood-03747.herokuapp.com/getSpecificOrders?email='+user.email)
         .then(res=>res.json())
         .then(data=>setOrders(data))
     },[]);

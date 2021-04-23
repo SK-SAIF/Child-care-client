@@ -4,7 +4,7 @@ import ReviewCard from '../ReviewCard/ReviewCard';
 const Review = () => {
     const [reviewData,setReviewData]=useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/allReview')
+        fetch('https://cryptic-wildwood-03747.herokuapp.com/allReview')
         .then(res=>res.json())
         .then(data=>setReviewData(data))
     },[]);
